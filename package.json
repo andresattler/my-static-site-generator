@@ -1,0 +1,29 @@
+{
+  "name": "generator",
+  "version": "1.0.0",
+  "description": "my static site generator",
+  "main": "index.js",
+  "author": "André Sattler",
+  "license": "MIT",
+  "bin": {
+    "mygenerator": "./lib/bin/cli.js"
+  },
+  "dependencies": {
+    "commander": "^2.9.0",
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2"
+  },
+  "devDependencies": {
+    "babel-preset-latest": "^6.16.0",
+    "babel-preset-react": "^6.16.0",
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2"
+  },
+  "babel": {
+    "presets": [
+      "latest",
+      "react"
+    ]
+  }
+}
