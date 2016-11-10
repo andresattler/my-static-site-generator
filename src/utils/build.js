@@ -1,14 +1,12 @@
 import React from 'react';
-import ReactDom from 'react-dom'
-
-class Html extends React.Component {
-  render (){
-    return <p>Hello world</p>;
-  }
-};
+import ReactDom from 'react-dom/server'
+import path from 'path';
+import fs from 'fs';
 
 function build(){
-  console.log('building...');
+  const dir = path.resolve('.');
+  const Html= require(`${dir}/components/html`);
+  fs.writeFileSync('index.html', ReactDom.renderToString(<Html/>));
 };
 
-module.exports = build;
+export default build;
