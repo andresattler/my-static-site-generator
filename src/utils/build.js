@@ -7,7 +7,7 @@ require("babel-register");
 function build(){
   const dir = path.resolve('.');
   const Html= require(`${dir}/components/html`).default;
-  fs.writeFileSync('index.html', ReactDom.renderToStaticMarkup(<Html/>));
+  fs.writeFileSync('./publish/index.html', ReactDom.renderToStaticMarkup(<Html/>));
 };
 
 export default build;
