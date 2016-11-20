@@ -1,13 +1,12 @@
-import React from 'react';
-import ReactDom from 'react-dom/server'
 import path from 'path';
-import fs from 'fs';
-require("babel-register");
-
+import createRoutes from './createRoutes';
+import buildHTML from './buildHTML';
 function build(){
   const dir = path.resolve('.');
-  const Html= require(`${dir}/components/html`).default;
-  fs.writeFileSync('./publish/index.html', ReactDom.renderToStaticMarkup(<Html/>));
+  const paths = createRoutes(dir);
+  paths.forEach(function(path){
+    buildHTML(path);
+  })
 };
 
 export default build;

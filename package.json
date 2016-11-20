@@ -12,6 +12,8 @@
     "babel-loader": "^6.2.7",
     "babel-register": "^6.18.0",
     "commander": "^2.9.0",
+    "glob": "^7.1.1",
+    "markdown-it": "^8.1.0",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "webpack": "^1.13.3"
