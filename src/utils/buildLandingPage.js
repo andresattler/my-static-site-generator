@@ -9,10 +9,17 @@ export default function (articles, dir){
   const content = data.map( val => fm(val));
   const attributes = content.map( val => val.attributes);
   const Html= require(`${dir}/html`).default;
+  const md = require('markdown-it')({
+    html: true,
+    linkify: true,
+    typographer: true,
+  });
   articles.forEach((val, i) => {
-    attributes[i].description = content[0].body.slice(50, 637);
+    const text = md.render(content[i].body);
+    const start = text.indexOf('<p>')+3;
+    const end = text.indexOf('</p>');
+    attributes[i].description = text.slice(start, end);
     attributes[i].link = 'articles/'+val;
   });
-  //console.log(content[0].body.indexOf('\n', 50));
   fs.writeFileSync('./publish/index.html', ReactDom.renderToStaticMarkup(<Html articles={attributes}/>));
 };
