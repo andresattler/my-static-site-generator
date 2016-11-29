@@ -9,5 +9,8 @@ export default function (articles, dir){
   const content = data.map( val => fm(val));
   const attributes = content.map( val => val.attributes);
   const Html= require(`${dir}/html`).default;
+  articles.forEach((val, i) => {
+    attributes[i].link = 'articles/'+val;
+  });
   fs.writeFileSync('./publish/index.html', ReactDom.renderToStaticMarkup(<Html articles={attributes}/>));
 };
