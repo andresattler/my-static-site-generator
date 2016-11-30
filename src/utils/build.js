@@ -4,10 +4,15 @@ import buildLP from './buildLandingPage';
 import del from 'del';
 import fs from 'fs-extra';
 import glob from 'glob';
+import stylus from 'jr-stylus';
 
 function build(){
   del.sync('publish/*');
-  fs.copySync('./themes/basic-theme/style', './publish/css/');
+  stylus({
+    inDir: './themes/basic-theme/style',
+    outFile: './publish/css/style.css'
+  })
+  //fs.copySync('./themes/basic-theme/style', './publish/css/');
   const articles = glob.sync('*', {cwd: './pages/articles/'})
   let pages = glob.sync('*', {cwd: './pages/'});
   pages = pages.filter(val => val!='articles');

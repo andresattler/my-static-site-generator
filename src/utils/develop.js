@@ -13,6 +13,7 @@ function develop() {
   const params = {
     port: 8000,
     root: "./publish",
+    watch: "./publish/index.html"
   };
   liveServer.start(params);
 }
