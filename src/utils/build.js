@@ -12,7 +12,7 @@ function build(){
     inDir: './themes/basic-theme/style',
     outFile: './publish/css/style.css'
   })
-  //fs.copySync('./themes/basic-theme/style', './publish/css/');
+  fs.copySync('./assets', './publish/assets');
   const articles = glob.sync('*', {cwd: './pages/articles/'})
   let pages = glob.sync('*', {cwd: './pages/'});
   pages = pages.filter(val => val!='articles');
