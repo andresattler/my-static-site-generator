@@ -10,7 +10,7 @@ export default function (name, dir, path){
     html: true,
     linkify: true,
     typographer: true,
-  });
+  }).use(require('markdown-it-highlightjs'));
   const text = md.render(data.body);
   const Html= require(`${dir}/html`).default;
   fs.mkdirSync(`./publish/${path}`);
