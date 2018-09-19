@@ -1,8 +1,6 @@
 import glob from 'glob';
 
-function createRoutes(dir) {
-  return glob.sync('*', {cwd: `${dir}/pages/`})
+const createRoutes = (dir) =>
+  glob.sync('*', {cwd: `${dir}/pages/`})
 
-};
-
-export default createRoutes;
+export default createRoutes
